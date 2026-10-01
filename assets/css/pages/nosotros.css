@@ -1,0 +1,19 @@
+/* Nosotros · componentes propios (lo común está en interior.css) */
+.mission{background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;border-radius:28px;padding:42px;position:relative;overflow:hidden}
+.mission::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,101,84,.35),transparent 65%)}
+.mission .big{font-size:23px;line-height:1.4;font-weight:700;color:#fff;margin:16px 0}
+.mission p{color:#B9C8DA;font-size:15.5px;position:relative;z-index:1}
+
+.reach{display:grid;gap:14px}
+.reach-r{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px 22px}
+.reach-r b{display:block;color:#fff;font-size:16px}
+.reach-r small{color:#9FB3CB;font-size:13.5px}
+.reach-r .dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;border:3px solid var(--violet-2)}
+.reach-r .dot.on{background:var(--coral);border-color:var(--coral);box-shadow:0 0 0 6px rgba(255,101,84,.22)}
+
+.trust-row{justify-content:center}
+
+/* inicio + cifras con un solo fondo */
+.hero-band{position:relative;overflow:hidden;background:radial-gradient(1100px 560px at 82% 0%,rgba(108,99,255,.38),transparent 60%),radial-gradient(900px 480px at 0% 100%,rgba(255,101,84,.22),transparent 60%),linear-gradient(160deg,#000E1C,var(--navy-2) 40%,var(--navy))}
+.hero-band > .page-hero,.hero-band > .kpis-band{background:transparent}
+.logos-band{margin-top:70px;display:grid;gap:22px}

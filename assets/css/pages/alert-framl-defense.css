@@ -1,0 +1,57 @@
+/* FRAML Alert Defense · usa la plantilla de producto (framl-ms-antifraude.css) con acento coral.
+   Aquí solo van los ajustes y componentes propios de esta página. */
+:root{--violet:#8E2EED;--violet-2:#B57BF6;--violet-soft:#F4EBFE;--c-ad:#8E2EED}
+.hero-band{background:radial-gradient(1200px 600px at 85% -10%,rgba(142,46,237,.45),transparent 60%),radial-gradient(900px 500px at -10% 110%,rgba(63,81,181,.35),transparent 60%),linear-gradient(160deg,var(--navy-2),var(--navy) 55%,#0B2B55)}
+.hero h1 .grad{background:linear-gradient(90deg,#9FB4FF,var(--violet-2) 45%,#D9B8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .phone{margin:0 auto}
+.final{background:radial-gradient(800px 400px at 90% 0%,rgba(142,46,237,.45),transparent 60%),radial-gradient(800px 400px at 0% 100%,rgba(63,81,181,.4),transparent 60%),var(--navy-2)}
+
+
+/* tres tarjetas junto a la cascada */
+.trio{display:grid;gap:16px}
+.trio .card{background:#fff}
+
+/* trazabilidad: texto + registro de auditoría */
+.trace{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.trace p{color:#B9C8DA;font-size:17px;margin-bottom:30px;max-width:520px}
+.log{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:22px;font-size:13.5px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.log-h{display:flex;align-items:center;gap:10px;font-weight:700;color:#fff;margin-bottom:12px;font-size:14px}
+.log-h svg{color:var(--violet-2);font-size:18px}
+.log-r{display:grid;grid-template-columns:74px 1fr auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid rgba(255,255,255,.07);color:#DCE6F2}
+.log-r span{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#8FA3BB}
+.log-r b{font-weight:500}
+.log-r .t{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:99px;background:rgba(47,191,133,.18);color:#6EE7B7}
+.log-r .t.y{background:rgba(245,184,65,.18);color:#F5C66B}
+.log-r .t.c{background:rgba(255,101,84,.2);color:var(--coral-2)}
+.log-f{font-size:11.5px;color:#61758D;margin:10px 0 0!important}
+
+/* preguntas frecuentes */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.faq{display:grid;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 22px;transition:box-shadow .2s,border-color .2s}
+.faq-item[open]{border-color:transparent;box-shadow:var(--shadow)}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 32px 20px 0;font-weight:600;color:var(--navy);font-size:16px;position:relative}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--violet-soft);color:var(--violet);display:grid;place-items:center;font-size:18px;font-weight:600;transition:transform .2s}
+.faq-item[open] summary::after{content:"–"}
+.faq-item p{color:var(--mute);padding-bottom:20px;font-size:15px}
+
+@media (max-width:1080px){
+  .trace,.faq-wrap{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:560px){
+  .log-r{grid-template-columns:60px 1fr;row-gap:4px}
+  .log-r .t{grid-column:2;justify-self:start}
+}
+
+/* ---------- colores de producto: morado de FRAML Alert Defense; naranja solo en botones y en el fraude ---------- */
+.eyebrow,.eyebrow.co,.page-hero .eyebrow{color:var(--violet)}
+.dark .eyebrow,.final .eyebrow,#trazabilidad .eyebrow{color:var(--violet-2)!important}
+.ico.co{background:var(--violet-soft);color:var(--violet)}
+.stat .n{color:var(--violet-2)}
+.cs.on .n{background:var(--violet);border-color:var(--violet);box-shadow:0 0 0 8px rgba(142,46,237,.15)}
+.cs .lbl{color:var(--violet)}
+.dark h2 em,#trazabilidad h2 em{color:var(--violet-2)}
+h2 em{color:var(--violet)}
+.contact svg{color:var(--violet-2)}
+.wa-h .avatar{background:var(--violet)}

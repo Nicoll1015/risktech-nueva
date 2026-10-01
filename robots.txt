@@ -1,0 +1,3 @@
+# SITIO DE PRUEBAS: no indexar. Se reemplaza al construir con --produccion.
+User-agent: *
+Disallow: /
