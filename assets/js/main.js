@@ -52,22 +52,32 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape')setM(false)});
   }
 
-  /* línea del tiempo: la luz avanza (2002 → 2026) a medida que se baja por la página */
+  /* línea del tiempo: al aparecer en pantalla, la luz recorre los hitos uno por uno (2002 → 2026); se repite si se sale y se vuelve */
   var tl=document.getElementById('tl');
   if(tl&&tl.classList.contains('tl2')){
-    var hitos=[].slice.call(tl.querySelectorAll('.tl2-it')),hz=tl.classList.contains('h');
-    var tlTick=function(){
-      var r=tl.getBoundingClientRect(),linea=innerHeight*(hz?.6:.55),p,ult=-1;
-      hitos.forEach(function(h,i){
-        var hr=h.getBoundingClientRect(),y=hz?(hr.top+(i*hr.height*.9)):(hr.top+24);
-        var ok=reduce||y<=linea; h.classList.toggle('lit',ok); if(ok)ult=i;
-      });
-      if(reduce){p=1;}
-      else if(hz){p=ult<0?0:ult/(hitos.length-1);}
-      else{p=Math.max(0,Math.min(1,(linea-r.top-14)/(r.height-28)));}
-      tl.style.setProperty('--p',p.toFixed(3));
+    var hitos=[].slice.call(tl.querySelectorAll('.tl2-it')),hz=tl.classList.contains('h'),PASO=1100,tlTimers=[];
+    var hastaHito=function(i){
+      var r=tl.getBoundingClientRect(),d=hitos[i].querySelector('.tl2-dot').getBoundingClientRect();
+      var p=hz?(d.left+d.width/2-r.left-14)/(r.width-28):(d.top+d.height/2-r.top-14)/(r.height-28);
+      return Math.max(0,Math.min(1,i===hitos.length-1?1:p));
     };
-    addEventListener('scroll',tlTick,{passive:true});addEventListener('resize',tlTick);tlTick();
+    var tlReset=function(){tlTimers.forEach(clearTimeout);tlTimers=[];hitos.forEach(function(h){h.classList.remove('lit')});tl.style.setProperty('--p',0);};
+    var tlPlay=function(){
+      tlReset();
+      hitos.forEach(function(h,i){
+        tlTimers.push(setTimeout(function(){tl.style.setProperty('--p',hastaHito(i).toFixed(3));},i*PASO));
+        tlTimers.push(setTimeout(function(){h.classList.add('lit');},i*PASO+(i?PASO*.75:150)));
+      });
+    };
+    tl.style.setProperty('--tl-paso',PASO*.75+'ms');
+    if(reduce||!('IntersectionObserver' in window)){hitos.forEach(function(h){h.classList.add('lit')});tl.style.setProperty('--p',1);}
+    else{
+      var jugando=false;
+      new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting&&!jugando){jugando=true;tlPlay();}
+        else if(!e.isIntersecting&&jugando){jugando=false;tlReset();}
+      });},{rootMargin:'0px 0px -30% 0px'}).observe(tl);
+    }
   }
 
   /* contadores + animación de entrada */

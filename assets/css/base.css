@@ -196,10 +196,12 @@ body .rs:hover h4{color:var(--violet)}
 .tl2{--p:0;position:relative;display:grid;gap:14px;padding-left:46px}
 .tl2::before,.tl2::after{content:"";position:absolute;left:15px;top:14px;width:3px;border-radius:3px}
 .tl2::before{bottom:14px;background:#DCE3EE}
-.tl2::after{height:calc((100% - 28px) * var(--p));background:linear-gradient(180deg,var(--violet),var(--coral));box-shadow:0 0 14px 2px rgba(108,99,255,.5);transition:height .2s linear}
+.tl2::after{height:calc((100% - 28px) * var(--p));background:linear-gradient(180deg,var(--violet),var(--coral));box-shadow:0 0 14px 2px rgba(108,99,255,.5);transition:height var(--tl-paso,.8s) cubic-bezier(.45,0,.25,1)}
 .tl2-it{position:relative}
 .tl2-dot{position:absolute;left:-40px;top:24px;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #C9D2E0;z-index:1;transition:all .4s}
 .tl2-it.lit .tl2-dot{background:var(--violet);border-color:#fff;box-shadow:0 0 0 4px var(--violet),0 0 18px 4px rgba(108,99,255,.55)}
+.tl2-it.lit .tl2-dot{animation:tlpop .55s ease-out}
+@keyframes tlpop{0%{transform:scale(.6)}55%{transform:scale(1.35)}100%{transform:scale(1)}}
 .tl2-it.hoy.lit .tl2-dot{background:var(--coral);box-shadow:0 0 0 4px var(--coral),0 0 18px 4px rgba(255,101,84,.55)}
 .tl2-card{display:grid;grid-template-columns:auto 1fr;column-gap:18px;row-gap:4px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 20px;transition:transform .35s,box-shadow .35s,border-color .35s,opacity .4s}
 .tl2-it:not(.lit) .tl2-card{opacity:.55;transform:translateX(8px)}
@@ -215,7 +217,7 @@ body .rs:hover h4{color:var(--violet)}
 .tl2.h{padding-left:0;padding-top:46px;grid-template-columns:repeat(4,1fr);gap:18px}
 .tl2.h::before,.tl2.h::after{left:14px;top:15px;height:3px;width:auto}
 .tl2.h::before{right:14px;bottom:auto}
-.tl2.h::after{width:calc((100% - 28px) * var(--p));height:3px;background:linear-gradient(90deg,var(--violet),var(--coral));transition:width .7s ease}
+.tl2.h::after{width:calc((100% - 28px) * var(--p));height:3px;background:linear-gradient(90deg,var(--violet),var(--coral));transition:width var(--tl-paso,.8s) cubic-bezier(.45,0,.25,1)}
 .tl2.h .tl2-dot{left:24px;top:-41px}
 .tl2.h .tl2-card{grid-template-columns:1fr;height:100%;align-content:start;padding:22px}
 .tl2.h .tl2-year{grid-row:auto;font-size:36px;margin-bottom:6px}
