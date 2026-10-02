@@ -390,3 +390,5 @@ h2 em{font-style:normal;color:var(--violet)}
 .road::before{background:linear-gradient(90deg,var(--violet),var(--violet-2))}
 .avatar{background:linear-gradient(135deg,var(--violet),var(--violet-2))}
 .rb .l{color:var(--violet-2)}
+
+.cer-logo{display:block;height:34px;width:auto;margin-bottom:6px}

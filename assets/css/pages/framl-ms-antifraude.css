@@ -343,3 +343,5 @@ h2 em{font-style:normal;color:var(--violet)}
 .stat .n{background:linear-gradient(180deg,#fff 20%,#C4BFFF);-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat .n sup{font-size:.42em;vertical-align:baseline;margin-left:2px;letter-spacing:0}
 .stat .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(143,136,255,.16);color:#B3ADFF;margin-bottom:18px}
+
+.cer-logo{display:block;height:34px;width:auto;margin-bottom:6px}
