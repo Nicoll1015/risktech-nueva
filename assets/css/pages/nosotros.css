@@ -19,6 +19,7 @@
 .logos-band{margin-top:70px;display:grid;gap:22px}
 
 /* liderazgo */
+.leads-hint{display:none;text-align:center;color:var(--mute);font-size:13px;margin-top:6px}
 .team-t{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);text-align:center;margin:0 0 20px}
 .founders + .team-t{margin-top:56px}
 .founders{max-width:900px;margin:0 auto;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;border-radius:24px;padding:34px 40px;position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
@@ -38,5 +39,8 @@
 .leader p:not(.lead-role){color:var(--mute);font-size:14.5px;flex:1}
 .lead-in{margin-top:16px;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--violet-soft);color:var(--violet);transition:background .2s,color .2s}
 .lead-in:hover{background:var(--violet);color:#fff}
-@media (max-width:720px){.founders{grid-template-columns:1fr;gap:24px;padding:28px 24px}.fc-txt{border-left:0;padding-left:0;font-size:16px}.leads{grid-template-columns:1fr 1fr}.lead-ph{width:88px;height:88px;font-size:24px}}
-@media (max-width:420px){.leads{grid-template-columns:1fr}}
+@media (max-width:720px){.founders{grid-template-columns:1fr;gap:24px;padding:28px 24px}.fc-txt{border-left:0;padding-left:0;font-size:16px}.lead-ph{width:96px;height:96px;font-size:26px}
+  .leads{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 24px;margin:0 -24px;padding:4px 24px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .leads::-webkit-scrollbar{display:none}
+  .leads .leader{scroll-snap-align:start}
+  .leads-hint{display:block}}
