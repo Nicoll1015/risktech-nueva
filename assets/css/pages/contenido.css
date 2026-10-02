@@ -93,6 +93,7 @@
 .prose .btn{text-decoration:none;color:#fff}
 .prose .btn-line{color:var(--navy)}
 .prose .btn-line:hover{color:var(--coral);border-color:var(--coral)}
+.prose .btn-coral:hover,.prose .btn-navy:hover{color:#fff}
 table.canales{display:table;table-layout:fixed;width:100%}
 table.canales td{word-break:break-word}
 table.canales th{width:34%}
