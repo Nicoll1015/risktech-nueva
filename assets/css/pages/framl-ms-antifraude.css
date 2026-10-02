@@ -226,6 +226,11 @@ h2 em{font-style:normal;color:var(--violet)}
 .cs .n{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:23px;background:#fff;border:2px solid var(--line);color:var(--mute);transition:all .4s;position:relative;z-index:1}
 .cs.on .n{background:var(--coral);border-color:var(--coral);color:#fff;box-shadow:0 0 0 8px rgba(255,101,84,.15)}
 .cs.done .n{background:var(--navy);border-color:var(--navy);color:#fff}
+/* la línea entre pasos se va llenando a medida que avanza la secuencia */
+.cs::after{content:"";position:absolute;left:27px;top:56px;width:2px;height:0;background:var(--violet);transition:height .8s ease;z-index:0}
+.cs.done::after{height:calc(100% - 56px)}
+.cs:last-child::after{display:none}
+
 .cs h4{font-size:17px;font-weight:700;color:var(--navy);margin-top:4px}
 .cs p{font-size:14px;color:var(--mute)}
 .cs .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--coral);text-transform:uppercase}
@@ -289,7 +294,7 @@ h2 em{font-style:normal;color:var(--violet)}
 .d3{transition-delay:.24s}
 .d4{transition-delay:.32s}
 @media (max-width:1080px){
-  .hero-grid,.cer-grid,.ad-grid,.net-wrap,.panel{grid-template-columns:1fr}
+  .hero-grid,.cer-grid,.ad-grid,.net-wrap,.panel{grid-template-columns:minmax(0,1fr)}
   .pain-grid{grid-template-columns:1fr 1fr}
   .eco{grid-template-columns:1fr;gap:0}
   .eco-link{height:54px}

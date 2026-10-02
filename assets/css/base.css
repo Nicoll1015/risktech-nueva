@@ -159,12 +159,12 @@ html.consent-lock,html.consent-lock body{overflow:hidden}
 /* tarjetas: al pasar el mouse toda la cajita se llena con un degradado de azul oscuro al color del producto
    (el mismo efecto de la página anterior). Morado en Inicio y Anti-Fraud, verde en AMLRISK, azul en AML. */
 body .card,body .why,body .sub,body .feat,body .pl{transition:transform .3s,box-shadow .3s,border-color .3s,background .3s}
-body .card:hover,body .why:hover,body .sub:hover,body .feat:hover,body .pl:hover{
+body :is(.card,.why,.sub,.feat,.pl):is(:hover,.hl){
   background:linear-gradient(120deg,#062643 23%,var(--violet) 100%);border-color:transparent;
   box-shadow:0 24px 48px -20px color-mix(in srgb,var(--violet) 75%,transparent);transform:translateY(-5px)}
-body :is(.card,.why,.sub,.feat,.pl):hover :is(h3,h4,p,b,span,small,li,a,.num){color:#fff}
-body :is(.card,.why,.sub,.feat,.pl):hover :is(.ico,.pi,.ic){background:rgba(255,255,255,.16);color:#fff}
-body :is(.card,.why,.sub,.feat,.pl):hover svg{color:#fff}
+body :is(.card,.why,.sub,.feat,.pl):is(:hover,.hl) :is(h3,h4,p,b,span,small,li,a,.num){color:#fff}
+body :is(.card,.why,.sub,.feat,.pl):is(:hover,.hl) :is(.ico,.pi,.ic){background:rgba(255,255,255,.16);color:#fff}
+body :is(.card,.why,.sub,.feat,.pl):is(:hover,.hl) svg{color:#fff}
 
 /* pestañas: al pasar el mouse se encienden en naranja */
 body .tab:hover:not(.on){border-color:var(--coral);background:var(--coral-soft);color:var(--navy)}
@@ -173,11 +173,23 @@ body .tab:hover:not(.on) svg{color:var(--coral)}
 /* pasos de implementación: cada paso se ilumina al pasar el mouse */
 body .rs{cursor:default}
 body .rs .n{transition:background .3s,color .3s,box-shadow .3s,transform .3s}
-body .rs:hover .n{background:var(--violet);border-color:var(--violet);color:#fff;box-shadow:0 0 0 8px color-mix(in srgb,var(--violet) 18%,transparent),0 0 22px 4px color-mix(in srgb,var(--violet) 45%,transparent);transform:scale(1.08)}
-body .rs:hover h4{color:var(--violet)}
+body .rs:is(:hover,.hl) .n{background:var(--violet);border-color:var(--violet);color:#fff;box-shadow:0 0 0 8px color-mix(in srgb,var(--violet) 18%,transparent),0 0 22px 4px color-mix(in srgb,var(--violet) 45%,transparent);transform:scale(1.08)}
+body .rs:is(:hover,.hl) h4{color:var(--violet)}
+
+/* en pantallas angostas ningún bloque de una cuadrícula puede quedar más ancho que la pantalla */
+@media (max-width:1080px){.hero-grid > *,.split > *,.ad-grid > *,.journey > *,.sectors > *{min-width:0}}
+
+/* pestañas convertidas en acordeón en el celular (main.js agrega .acc) */
+@media (max-width:720px){
+  .tabs.acc,.stabs.acc{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;align-items:stretch!important;overflow:visible!important;margin:0 0 8px!important;padding:0!important;gap:10px!important}
+  .acc > button{width:100%!important;flex:none!important;justify-content:flex-start;text-align:left;white-space:normal!important;position:relative;padding-right:44px!important}
+  .acc > button::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;margin-top:-6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .25s;opacity:.7}
+  .acc > button:is(.on,[aria-selected="true"])::after{transform:rotate(-135deg);margin-top:-2px}
+  .acc > :not(button){margin:0 0 10px!important;width:100%}
+}
 
 /* carrusel de logos (Inicio y Nosotros) */
-.logos-band{margin-top:80px;display:grid;gap:26px}
+.logos-band{margin-top:80px;display:grid;grid-template-columns:minmax(0,1fr);gap:26px}
 .band-t{text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
 .marquee{display:flex;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .mq-track{list-style:none;display:flex;align-items:center;gap:64px;padding-right:64px;flex-shrink:0;animation:mq 45s linear infinite}

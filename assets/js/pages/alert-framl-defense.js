@@ -19,7 +19,7 @@
   else {
     /* arranca de una con el primer mensaje, avanza rápido y deja el resultado final más tiempo en pantalla */
     var loop=function(){ adTick(); var s=(frame-1)%9; setTimeout(loop, s===7?4000:(s===0?350:1000)); };
-    var started=false; var aio=new IntersectionObserver(function(es){ if(es[0].isIntersecting && !started){ started=true; frame=0; adTick(); setTimeout(loop,150);} },{threshold:.1}); aio.observe(document.getElementById('wa'));
+    var started=false; var aio=new IntersectionObserver(function(es){ if(es.some(function(e){return e.isIntersecting}) && !started){ started=true; frame=0; adTick(); setTimeout(loop,150);} },{threshold:.1}); aio.observe(document.getElementById('wa'));var cz=document.getElementById('cascade');if(cz)aio.observe(cz);
   }
 })();
 

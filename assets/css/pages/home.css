@@ -60,7 +60,8 @@ h2 em{font-style:normal;background:linear-gradient(90deg,var(--violet),var(--cor
 .dark h2 em{background:linear-gradient(90deg,var(--violet-2),var(--coral-2));-webkit-background-clip:text;background-clip:text}
 .dark .sec-head p{color:#B9C8DA}
 .soft{background:var(--bg)}
-.clientes-band{padding:64px 0 0;display:grid}
+.clientes-band{padding:64px 0 0;display:grid;grid-template-columns:minmax(0,1fr)}
+.clientes-band > .wrap{min-width:0;width:100%}
 .clientes-band .band-t{margin:0 0 26px;line-height:1.5;font-size:11px}
 .clientes-band + section{padding-top:80px}
 /* stats */
@@ -303,3 +304,10 @@ h2 em{font-style:normal;background:linear-gradient(90deg,var(--violet),var(--cor
 .arts-more{align-self:flex-end;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--navy);margin-top:4px}
 .arts-more:hover{color:var(--coral)}
 @media (max-width:720px){.art-thumb{width:104px}}
+
+/* «Protegemos cada momento» en el celular: cada paso con su contenido debajo (home.js agrega .stacked) */
+.journey.stacked > .jstage{display:none}
+.journey.stacked .js{cursor:default;background:var(--navy);border-color:var(--navy);transform:none}
+.journey.stacked .js b{color:#fff}.journey.stacked .js small{color:#B9C8DA}.journey.stacked .js .ic{background:var(--coral);color:#fff}
+.journey.stacked .js .bar{display:none}
+.jstage-m{min-height:0;margin:-4px 0 12px}

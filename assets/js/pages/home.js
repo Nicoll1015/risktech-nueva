@@ -63,11 +63,27 @@
     jv.innerHTML=s.v.map(function(r,k){return '<div class="vrow" style="animation-delay:'+(k*.35)+'s"><span><b>'+r[0]+'</b><small>'+r[1]+'</small></span>'+(r[2]?'<span class="chip '+r[3]+'">'+r[2]+'</span>':'')+'</div>'}).join('');
     if(s.link){jlink.href=s.link;jlink.removeAttribute('target');jlink.innerHTML='Conocer la solución <svg aria-hidden="true" class="i"><use href="#arrow"/></svg>';}else{jlink.href='agenda-tu-demo/';jlink.removeAttribute('target');jlink.innerHTML='Agenda tu demo <svg aria-hidden="true" class="i"><use href="#arrow"/></svg>';}
     t0=performance.now();}
-  function tick(now){if(!paused&&!reduce){var p=(now-t0)/DUR;var b=steps[cur].querySelector('.bar i');b.style.width=Math.min(p*100,100)+'%';if(p>=1)show(cur+1);}requestAnimationFrame(tick);}
+  function tick(now){if(!paused&&!reduce&&!journey.classList.contains('stacked')){var p=(now-t0)/DUR;var b=steps[cur].querySelector('.bar i');b.style.width=Math.min(p*100,100)+'%';if(p>=1)show(cur+1);}requestAnimationFrame(tick);}
   steps.forEach(function(b,k){b.addEventListener('click',function(){show(k)})});
   document.getElementById('jnext').onclick=function(){show(cur+1)};document.getElementById('jprev').onclick=function(){show(cur-1)};
   var pb=document.getElementById('jpause');pb.onclick=function(){paused=!paused;pb.innerHTML=paused?'<svg aria-hidden="true" class="i"><use href="#play"/></svg>':'<svg aria-hidden="true" class="i"><use href="#pause"/></svg>';if(!paused)t0=performance.now();};
   show(0);requestAnimationFrame(tick);
+  /* en el celular: cada paso muestra su contenido justo debajo, uno tras otro */
+  var journey=document.getElementById('jsteps').parentNode,clones=[],mqJ=window.matchMedia('(max-width:720px)');
+  function stageHTML(s){
+    var link=s.link?'<a href="'+s.link+'">Conocer la solución <svg aria-hidden="true" class="i"><use href="#arrow"/></svg></a>':'<a href="agenda-tu-demo/">Agenda tu demo <svg aria-hidden="true" class="i"><use href="#arrow"/></svg></a>';
+    return '<div class="jhead"><h3>'+s.t+'</h3><span class="tag" style="background:'+s.tc+';color:'+s.tt+'">'+s.tag+'</span></div>'+
+      '<div class="jbody"><div><p>'+s.d+'</p><ul>'+s.l.map(function(x){return '<li><svg aria-hidden="true" class="i"><use href="#check"/></svg>'+x+'</li>'}).join('')+'</ul></div>'+
+      '<div class="jviz">'+s.v.map(function(r,k){return '<div class="vrow" style="animation-delay:'+(k*.35)+'s"><span><b>'+r[0]+'</b><small>'+r[1]+'</small></span>'+(r[2]?'<span class="chip '+r[3]+'">'+r[2]+'</span>':'')+'</div>'}).join('')+'</div></div>'+
+      '<div class="jfoot">'+link+'</div>';
+  }
+  function apilar(){
+    clones.forEach(function(c){c.parentNode.removeChild(c)});clones=[];
+    journey.classList.toggle('stacked',mqJ.matches);
+    if(mqJ.matches)steps.forEach(function(b,k){var d=document.createElement('div');d.className='jstage jstage-m';d.innerHTML=stageHTML(J[k]);b.parentNode.insertBefore(d,b.nextSibling);clones.push(d);});
+    else t0=performance.now();
+  }
+  apilar();if(mqJ.addEventListener)mqJ.addEventListener('change',apilar);else mqJ.addListener(apilar);
 
   /* product card spotlight */
   document.querySelectorAll('.pc').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});});
