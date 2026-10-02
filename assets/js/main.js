@@ -106,6 +106,16 @@
     aplicar();onMq(aplicar);
   });
 
+  /* pasos de implementación (.road): la línea se llena y cada paso se enciende uno tras otro; al final queda todo encendido */
+  [].forEach.call(document.querySelectorAll('.road'),function(rd){
+    var rs=[].slice.call(rd.querySelectorAll('.rs'));if(!rs.length)return;
+    rd.classList.add('seq');
+    if(reduce||!('IntersectionObserver' in window)){rs.forEach(function(r){r.classList.add('lit')});rd.style.setProperty('--p',1);return;}
+    var io2=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;io2.disconnect();
+      rs.forEach(function(r,i){setTimeout(function(){rd.style.setProperty('--p',rs.length>1?i/(rs.length-1):1);},i*650);setTimeout(function(){r.classList.add('lit')},i*650+(i?450:100));});
+    },{threshold:.4});io2.observe(rd);
+  });
+
   /* carrusel del equipo (Nosotros) en el celular: avanza solo; si la persona lo desliza, espera antes de seguir */
   var leads=document.querySelector('.leads');
   if(leads&&!reduce&&'IntersectionObserver' in window){

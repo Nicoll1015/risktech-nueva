@@ -173,8 +173,8 @@ body .tab:hover:not(.on) svg{color:var(--coral)}
 /* pasos de implementación: cada paso se ilumina al pasar el mouse */
 body .rs{cursor:default}
 body .rs .n{transition:background .3s,color .3s,box-shadow .3s,transform .3s}
-body .rs:is(:hover,.hl) .n{background:var(--violet);border-color:var(--violet);color:#fff;box-shadow:0 0 0 8px color-mix(in srgb,var(--violet) 18%,transparent),0 0 22px 4px color-mix(in srgb,var(--violet) 45%,transparent);transform:scale(1.08)}
-body .rs:is(:hover,.hl) h4{color:var(--violet)}
+body .rs:is(:hover,.hl,.lit) .n{background:var(--violet);border-color:var(--violet);color:#fff;box-shadow:0 0 0 8px color-mix(in srgb,var(--violet) 18%,transparent),0 0 22px 4px color-mix(in srgb,var(--violet) 45%,transparent);transform:scale(1.08)}
+body .rs:is(:hover,.hl,.lit) h4{color:var(--violet)}
 
 /* en pantallas angostas ningún bloque de una cuadrícula puede quedar más ancho que la pantalla */
 @media (max-width:1080px){.hero-grid > *,.split > *,.ad-grid > *,.journey > *,.sectors > *{min-width:0}}
@@ -187,6 +187,11 @@ body .rs:is(:hover,.hl) h4{color:var(--violet)}
   .acc > button:is(.on,[aria-selected="true"])::after{transform:rotate(-135deg);margin-top:-2px}
   .acc > :not(button){margin:0 0 10px!important;width:100%}
 }
+
+/* línea de los pasos de implementación: se llena de izquierda a derecha (main.js mueve --p) */
+.road.seq::before{opacity:.22}
+.road.seq::after{content:"";position:absolute;top:30px;left:6%;height:2px;width:calc(88% * var(--p,0));background:var(--violet);transition:width .6s ease;z-index:0}
+@media (max-width:640px){.road.seq::after{display:none}}
 
 /* carrusel de logos (Inicio y Nosotros) */
 .logos-band{margin-top:80px;display:grid;grid-template-columns:minmax(0,1fr);gap:26px}
