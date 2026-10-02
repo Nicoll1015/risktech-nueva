@@ -1,4 +1,4 @@
-/* FRAML-MS AML · RISKTECH S.A.S. · animaciones e interacciones propias de la página */
+/* FRAML MS AML · RISKTECH S.A.S. · animaciones e interacciones propias de la página */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function dots(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')}

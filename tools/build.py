@@ -56,8 +56,8 @@ ORG = {
 # Páginas de producto -> datos estructurados SoftwareApplication
 PRODUCTOS = {
     "/amlrisk/": "AMLRISK",
-    "/framl-ms-antifraude/": "FRAML-MS Anti-Fraud",
-    "/framl-ms-aml/": "FRAML-MS AML",
+    "/framl-ms-antifraude/": "FRAML MS AntiFraud",
+    "/framl-ms-aml/": "FRAML MS AML",
     "/alert-framl-defense/": "FRAML Alert Defense",
 }
 

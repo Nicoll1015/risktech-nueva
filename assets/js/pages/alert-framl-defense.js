@@ -1,4 +1,4 @@
-/* FRAML Alert Defense · animación de la cascada WhatsApp → voz (misma del bloque de FRAML-MS Anti-Fraud) */
+/* FRAML Alert Defense · animación de la cascada WhatsApp → voz (misma del bloque de FRAML MS AntiFraud) */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

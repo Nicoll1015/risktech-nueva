@@ -14,8 +14,8 @@ del WordPress** (`risktech.com.co/amlrisk/`) y no hay que redirigirlas.
 .
 ├── index.html                    Inicio (mockup Home)
 ├── amlrisk/                      (mockup AMLRISK)
-├── framl-ms-antifraude/          (mockup FRAML-MS AFT)
-├── framl-ms-aml/                 (mockup FRAML-MS AML)
+├── framl-ms-antifraude/          (mockup FRAML MS AFT)
+├── framl-ms-aml/                 (mockup FRAML MS AML)
 ├── alert-framl-defense/          Plantilla de producto (CSS de AFT + acento coral)
 ├── nosotros/, tecnologia/        Páginas internas (assets/css/pages/interior.css)
 ├── blog/, category/articulos/    Listados de contenido
@@ -78,7 +78,7 @@ con la cabecera `x-api-key` (= `data-key`). Campos:
 | `correo` | Correo corporativo (`correo`) |
 | `telefono` | Celular, opcional (`celular`; vacío si no lo llena) |
 | `nombreEmpresa` | Empresa (`empresa`) |
-| `producto` | Texto visible de la solución elegida (`producto`), p. ej. "FRAML-MS AML" |
+| `producto` | Texto visible de la solución elegida (`producto`), p. ej. "FRAML MS AML" |
 | `mensaje` | Una línea por dato: `Rol: …`, autorización de datos con fecha y hora de Bogotá, `Acepta recibir contenidos por correo: Sí/No`, `Origen: …` (página de donde llegó) y `Página: …` (URL del formulario) |
 
 Los botones de cada producto agregan `?producto=…` para preseleccionar la solución.
@@ -100,8 +100,8 @@ el build genera solo los datos estructurados FAQPage. Un artículo nuevo lleva
 `<article data-published="AAAA-MM-DD" data-image="ruta/imagen">` para BlogPosting.
 
 Reglas de la auditoría: botones solo "Agenda tu demo", "Habla con un experto",
-"Prueba AMLRISK gratis" y "Leer más". Nombres de producto: AMLRISK, FRAML-MS
-Anti-Fraud, FRAML-MS AML y FRAML Alert Defense. Toda imagen lleva `alt`.
+"Prueba AMLRISK gratis" y "Leer más". Nombres de producto: AMLRISK, FRAML MS
+AntiFraud, FRAML MS AML y FRAML Alert Defense. Toda imagen lleva `alt`.
 
 ## Imagen para redes sociales
 

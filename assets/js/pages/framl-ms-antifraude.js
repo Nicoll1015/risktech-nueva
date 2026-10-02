@@ -1,4 +1,4 @@
-/* FRAML-MS Anti-Fraude · RISKTECH S.A.S. · animaciones e interacciones propias de la página */
+/* FRAML MS AntiFraude · RISKTECH S.A.S. · animaciones e interacciones propias de la página */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
