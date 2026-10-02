@@ -101,7 +101,7 @@ footer .wrap{max-width:1240px}
 .fgrid h5{color:#fff;font-size:14px;font-weight:700;margin-bottom:16px}
 .fgrid a{display:block;margin-bottom:10px;transition:color .2s}
 .fgrid a:hover{color:#fff}
-.fgrid a.f-tel{display:inline-flex;align-items:center;gap:10px;margin:14px 0 0;color:#fff;font-weight:600;font-size:15px}
+.fgrid a.f-tel{display:flex;width:fit-content;align-items:center;gap:10px;margin:12px 0 0;color:#fff;font-weight:600;font-size:15px}
 .fgrid a.f-tel svg{font-size:18px}
 .socials{display:flex;gap:10px;margin-top:20px}
 .f-iso{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:22px}
