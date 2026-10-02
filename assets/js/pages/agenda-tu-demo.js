@@ -58,6 +58,6 @@
         (window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',producto:f('producto'),origen:f('origen')});
         form.hidden=true;done.hidden=false;done.querySelector('h2').setAttribute('tabindex','-1');done.querySelector('h2').focus();})
       .catch(function(){btn.disabled=false;msg.className='form-msg error';
-        msg.innerHTML='No pudimos enviar tu solicitud. Intenta de nuevo o <a href="https://api.whatsapp.com/send/?phone=573219437035&amp;text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20RiskTech." target="_blank" rel="noopener">escríbenos por WhatsApp</a>.';});
+        msg.innerHTML='No pudimos enviar tu solicitud. Intenta de nuevo o <a href="https://api.whatsapp.com/send/?phone=573167204409&amp;text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20RiskTech." target="_blank" rel="noopener">escríbenos por WhatsApp</a>.';});
   });
 })();

@@ -45,7 +45,7 @@ ORG = {
     "url": f"{DOMINIO}/",
     "logo": f"{DOMINIO}/assets/img/logos/risktech.png",
     "email": "mercadeo@risktech.com.co",
-    "telephone": "+57 321 943 7035",
+    "telephone": "+57 317 365 3316",
     "address": {"@type": "PostalAddress", "addressLocality": "Bogotá", "addressCountry": "CO"},
     "sameAs": [
         "https://co.linkedin.com/company/risktechsas",
