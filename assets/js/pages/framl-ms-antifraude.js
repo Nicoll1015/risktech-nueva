@@ -37,9 +37,9 @@
   /* cerebrito chat */
   var chat=document.getElementById('chat'), typ=document.getElementById('chat-typing');
   var convo=[
-    ['¿Cuántas alertas se generaron esta semana?','Esta semana se generaron <b>742 alertas</b>, 18% menos que la anterior. El 61% provino de App móvil y la regla con mayor efectividad fue <b>“Cambio de dispositivo + transferencia”</b>.'],
-    ['¿Qué dispositivos tienen mayor riesgo en red?','Identifiqué <b>3 dispositivos</b> operando más de 5 identidades distintas en 48 horas. Uno está conectado a 7 cuentas destino externas. Recomiendo <b>aislar la red</b> y revisar el clúster.'],
-    ['¿Qué regla debería ajustar?','La regla <b>“Primer IP x encargo”</b> es muy restrictiva: 173 alertas con baja confirmación. Sugiero elevar el umbral y simularla en SandBox antes de desplegar.']
+    ['¿Cuántas alertas se generaron esta semana?','Esta semana se generaron <b>742 alertas</b>, 18 % menos que la anterior. El 61 % provino de la app móvil y la regla con mayor efectividad fue <b>“Cambio de dispositivo + transferencia”</b>.'],
+    ['¿Qué dispositivos tienen mayor riesgo en red?','Identifiqué <b>3 dispositivos</b> que operan más de 5 identidades distintas en 48 horas. Uno está conectado a 7 cuentas destino externas. Recomiendo <b>aislar la red</b> y revisar el clúster.'],
+    ['¿Qué regla debería ajustar?','La regla <b>“Primera IP por encargo”</b> es muy restrictiva: 173 alertas con baja confirmación. Sugiero elevar el umbral y simularla en SandBox antes de desplegar.']
   ];
   var ci=0;
   function say(cls,html){ var m=document.createElement('div'); m.className='msg '+cls; m.innerHTML=html; chat.appendChild(m); while(chat.children.length>6) chat.removeChild(chat.firstChild); return m; }

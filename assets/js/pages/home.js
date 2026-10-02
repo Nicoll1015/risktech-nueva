@@ -44,7 +44,7 @@
     {t:'Validación con el cliente',tag:'FRAML ALERT DEFENSE',tc:'rgba(255,101,84,.25)',tt:'#FF8577',link:'alert-framl-defense/',
      d:'Alert Defense contacta al cliente por WhatsApp; si no responde, Gaby, nuestra agente de voz, lo llama. La respuesta vuelve al motor para bloquear o liberar.',
      l:['Chat Defense por WhatsApp oficial','Voice Defense con agente de voz IA','Audio y transcripción auditables'],
-     v:[['WhatsApp enviado','¿Reconoce esta transferencia?','10:42','v'],['Sin respuesta','Escalando a Voice Defense','10:45','y'],['Llamada de Gaby · 0:41','"No, yo no hice esa transferencia"','10:47','v'],['Decisión','Transacción rechazada · tarjeta bloqueada','BLOQUEO','c']]},
+     v:[['WhatsApp enviado','¿Reconoce esta transferencia?','10:42','v'],['Sin respuesta','Escalando a Voice Defense','10:45','y'],['Llamada de Gaby · 0:41','“No, yo no hice esa transferencia”','10:47','v'],['Decisión','Transacción rechazada · tarjeta bloqueada','BLOQUEO','c']]},
     {t:'Del patrón LA/FT al reporte',tag:'FRAML MS AML',tc:'rgba(99,174,255,.25)',tt:'#9CCBFF',link:'framl-ms-aml/',
      d:'Cuando aparece una señal de lavado de activos, FRAML MS AML la documenta con el perfil 360°, la matriz de riesgo y los grafos, y la lleva hasta el ROS.',
      l:['Matriz SARLAFT inherente y residual','PEPs, listas y segmentación con IA','ROS y reportes de ley para la UIAF'],
@@ -52,7 +52,7 @@
     {t:'IA que aprende y conecta',tag:'CEREBRITO',tc:'rgba(108,99,255,.3)',tt:'#C7C4FF',link:'',
      d:'Cerebrito analiza todo el universo transaccional: responde en lenguaje natural, sugiere cómo calibrar reglas y revela redes de fraude y cuentas mula.',
      l:['Chat IA en lenguaje natural','Monitor forense de reglas','Grafos de riesgo en red'],
-     v:[['Pregunta','¿Qué red está detrás de esta alerta?','',''],['Red identificada','7 cuentas · 2 dispositivos compartidos','MULAS','c'],['Regla sugerida','Ajustar umbral de "primer beneficiario"','IA','v'],['Aprendizaje','Nuevo patrón agregado al modelo','OK','g']]}
+     v:[['Pregunta','¿Qué red está detrás de esta alerta?','',''],['Red identificada','7 cuentas · 2 dispositivos compartidos','MULAS','c'],['Regla sugerida','Ajustar umbral de “primer beneficiario”','IA','v'],['Aprendizaje','Nuevo patrón agregado al modelo','OK','g']]}
   ];
   var steps=[].slice.call(document.querySelectorAll('.js')),cur=0,timer=null,paused=false,t0=0,DUR=7000;
   var jt=document.getElementById('jt'),jtag=document.getElementById('jtag'),jd=document.getElementById('jd'),jl=document.getElementById('jl'),jv=document.getElementById('jv'),jlink=document.getElementById('jlink');
@@ -89,7 +89,7 @@
   document.querySelectorAll('.pc').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});});
 
   /* bento chat */
-  var bchat=document.getElementById('bchat'),conv=[['¿Qué regla genera más falsos positivos?','<b>“Primer IP x encargo”</b>: 173 alertas con baja confirmación. Sugiero elevar el umbral y probarla en SandBox.'],['¿Cuántas alertas hubo esta semana?','<b>742 alertas</b>, 18% menos que la semana anterior. El 61% vino de la app móvil.'],['¿Hay dispositivos de alto riesgo?','<b>3 dispositivos</b> operan más de 5 identidades en 48 h. Recomiendo aislar la red.']],ci=0;
+  var bchat=document.getElementById('bchat'),conv=[['¿Qué regla genera más falsos positivos?','<b>“Primera IP por encargo”</b>: 173 alertas con baja confirmación. Sugiero elevar el umbral y probarla en SandBox.'],['¿Cuántas alertas hubo esta semana?','<b>742 alertas</b>, 18 % menos que la semana anterior. El 61 % vino de la app móvil.'],['¿Hay dispositivos de alto riesgo?','<b>3 dispositivos</b> operan más de 5 identidades en 48 h. Recomiendo aislar la red.']],ci=0;
   function chatLoop(){var c=conv[ci%conv.length];ci++;while(bchat.children.length>2)bchat.removeChild(bchat.firstChild);var u=document.createElement('div');u.className='msg u';u.textContent=c[0];bchat.appendChild(u);
     setTimeout(function(){var b=document.createElement('div');b.className='msg b';b.innerHTML=c[1];bchat.appendChild(b);},900);setTimeout(chatLoop,5200);}
   var cio=new IntersectionObserver(function(es){if(es[0].isIntersecting){chatLoop();cio.disconnect();}},{threshold:.2});cio.observe(bchat);

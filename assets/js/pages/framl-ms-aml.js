@@ -33,7 +33,7 @@
 
   /* live feed */
   var feed=document.getElementById('feed');
-  var sigs=[['coins','Fraccionamiento efectivo',1],['repeat','Paso de fondos 24h',1],['users','Múltiples ordenantes',1],['flag','Operación cliente PEP',0],['globe','Jurisdicción de riesgo',1],['search','Coincidencia en listas',1],['card','Transferencia nacional',0],['bank','Consignación sucursal',0],['send','Giro internacional',0],['idcard','Actualización de datos',0]];
+  var sigs=[['coins','Fraccionamiento efectivo',1],['repeat','Paso de fondos 24 h',1],['users','Múltiples ordenantes',1],['flag','Operación cliente PEP',0],['globe','Jurisdicción de riesgo',1],['search','Coincidencia en listas',1],['card','Transferencia nacional',0],['bank','Consignación sucursal',0],['send','Giro internacional',0],['idcard','Actualización de datos',0]];
   var ev=312480, al=24, ros=3, n=0;
   function addRow(){
     n++;
@@ -56,7 +56,7 @@
   var chat=document.getElementById('chat'), typ=document.getElementById('chat-typing');
   var convo=[
     ['¿Qué cuentas presentan comportamiento de cuenta mula?','Prioricé <b>7 cuentas</b>: recibieron fondos de 23 ordenantes sin relación y los dispersaron en menos de 24 horas. Tres comparten dispositivo. Todas tienen menos de 90 días de apertura. Recomiendo <b>escalar el caso</b>.'],
-    ['¿Qué clientes PEP tuvieron operaciones inusuales este mes?','<b>4 clientes PEP</b> superaron su perfil transaccional. El caso más relevante registra un incremento de <b>312%</b> frente a su promedio y giros a 2 jurisdicciones de riesgo.'],
+    ['¿Qué clientes PEP tuvieron operaciones inusuales este mes?','<b>4 clientes PEP</b> superaron su perfil transaccional. El caso más relevante registra un incremento de <b>312 %</b> frente a su promedio y giros a 2 jurisdicciones de riesgo.'],
     ['Resume el caso 2026-0147 para el comité','Red de dispersión con <b>$186 M</b> movilizados en 5 días a través de 7 cuentas y 5 identidades. Señales: paso de fondos, fraccionamiento y dispositivo compartido. Soportes listos para evaluar el <b>ROS</b>.'],
     ['¿Qué regla LA/FT debería calibrar?','La tipología <b>“Múltiples ordenantes”</b> genera muchas alertas con baja escalación a ROS. Sugiero segmentarla por actividad económica y validar el ajuste antes de producción.']
   ];
