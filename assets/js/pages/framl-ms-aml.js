@@ -110,5 +110,10 @@
     frame++;
   }
   if(reduce){ items.forEach(function(x){x.classList.add('show')}); steps.forEach(function(x){x.classList.add('done')}); }
-  else { var started=false; var cio2=new IntersectionObserver(function(es){ if(es[0].isIntersecting && !started){ started=true; tick(); setInterval(tick,1600);} },{threshold:.3}); cio2.observe(document.getElementById('case')); }
+  else {
+    /* recorre los pasos una sola vez, un poco más rápido, y al final queda todo encendido */
+    var fin=function(){ items.forEach(function(x){x.classList.add('show')}); steps.forEach(function(x){x.classList.remove('on');x.classList.add('done')}); };
+    var started=false; var cio2=new IntersectionObserver(function(es){ if(es.some(function(e){return e.isIntersecting}) && !started){ started=true; frame=0; tick(); var iv=setInterval(function(){ if(frame>=items.length){clearInterval(iv);setTimeout(fin,900);return;} tick(); },1000);} },{threshold:.3});
+    cio2.observe(document.getElementById('case')); var cz=document.getElementById('cascade'); if(cz)cio2.observe(cz);
+  }
 })();

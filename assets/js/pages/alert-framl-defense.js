@@ -18,7 +18,9 @@
   if(reduce){ bubs.forEach(function(b){b.classList.add('show')}); steps.forEach(function(x){x.classList.add('done')}); }
   else {
     /* arranca de una con el primer mensaje, avanza rápido y deja el resultado final más tiempo en pantalla */
-    var loop=function(){ adTick(); var s=(frame-1)%9; setTimeout(loop, s===7?4000:(s===0?350:1000)); };
+    /* recorre los pasos una sola vez, un poco más rápido, y al final queda todo encendido */
+    var fin=function(){ bubs.forEach(function(b){b.classList.add('show')}); steps.forEach(function(x){x.classList.remove('on');x.classList.add('done')}); };
+    var loop=function(){ adTick(); var s=(frame-1)%9; if(s>=7){ setTimeout(fin,900); return; } setTimeout(loop,700); };
     var started=false; var aio=new IntersectionObserver(function(es){ if(es.some(function(e){return e.isIntersecting}) && !started){ started=true; frame=0; adTick(); setTimeout(loop,150);} },{threshold:.1}); aio.observe(document.getElementById('wa'));var cz=document.getElementById('cascade');if(cz)aio.observe(cz);
   }
 })();

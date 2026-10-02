@@ -69,15 +69,13 @@
         tlTimers.push(setTimeout(function(){tl.style.setProperty('--p',hastaHito(i).toFixed(3));},i*PASO));
         tlTimers.push(setTimeout(function(){h.classList.add('lit');},i*PASO+(i?PASO*.75:150)));
       });
-      /* se repite mientras siga en pantalla */
-      tlTimers.push(setTimeout(function(){if(jugando)tlPlay();},hitos.length*PASO+2600));
     };
     tl.style.setProperty('--tl-paso',PASO*.75+'ms');
     if(reduce||!('IntersectionObserver' in window)){hitos.forEach(function(h){h.classList.add('lit')});tl.style.setProperty('--p',1);}
     else{
       new IntersectionObserver(function(es){es.forEach(function(e){
+        /* corre una sola vez y, al llegar al final, queda toda encendida */
         if(e.isIntersecting&&!jugando){jugando=true;tlPlay();}
-        else if(!e.isIntersecting&&jugando){jugando=false;tlReset();}
       });},{rootMargin:'0px 0px -30% 0px'}).observe(tl);
     }
   }
@@ -107,30 +105,6 @@
     })});
     aplicar();onMq(aplicar);
   });
-
-  /* cuadros que se iluminan al pasar el mouse: también se encienden solos, uno tras otro, mientras están en pantalla.
-     Al tocar o pasar el mouse por uno, la secuencia se detiene en ese. */
-  if(!reduce&&'IntersectionObserver' in window){
-    var SEL='.card,.why,.sub,.feat,.pl,.rs',grupos=[];
-    [].forEach.call(document.querySelectorAll(SEL),function(el){var g=el.parentNode;if(grupos.indexOf(g)<0)grupos.push(g);});
-    grupos.forEach(function(g){
-      var items=[].filter.call(g.children,function(c){return c.matches(SEL)});if(items.length<2)return;
-      var i=-1,vis=false,pausa=0,t=null;
-      function paso(){
-        if(!vis||Date.now()<pausa)return;
-        items.forEach(function(c){c.classList.remove('hl')});
-        i=(i+1)%items.length;items[i].classList.add('hl');
-      }
-      function quieto(ms){pausa=Date.now()+ms;items.forEach(function(c){c.classList.remove('hl')});}
-      g.addEventListener('mouseenter',function(){quieto(36e5)});
-      g.addEventListener('mouseleave',function(){pausa=Date.now()+1500});
-      g.addEventListener('touchstart',function(){quieto(7000)},{passive:true});
-      new IntersectionObserver(function(es){vis=es[0].isIntersecting;
-        if(vis&&!t){paso();t=setInterval(paso,1700);}
-        else if(!vis&&t){clearInterval(t);t=null;items.forEach(function(c){c.classList.remove('hl')});i=-1;}
-      },{threshold:.35}).observe(g);
-    });
-  }
 
   /* carrusel del equipo (Nosotros) en el celular: avanza solo; si la persona lo desliza, espera antes de seguir */
   var leads=document.querySelector('.leads');
