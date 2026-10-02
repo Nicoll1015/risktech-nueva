@@ -43,4 +43,5 @@
   .leads{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 24px;margin:0 -24px;padding:4px 24px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .leads::-webkit-scrollbar{display:none}
   .leads .leader{scroll-snap-align:start}
+  .leads .leader.rv{opacity:1;transform:none;transition:none}
   .leads-hint{display:block}}
