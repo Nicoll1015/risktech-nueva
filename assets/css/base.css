@@ -200,13 +200,13 @@ body .rs:is(:hover,.hl,.lit) h4{color:var(--violet)}
 .mq-track{list-style:none;display:flex;align-items:center;gap:64px;padding-right:64px;flex-shrink:0;animation:mq 45s linear infinite}
 .marquee.rev .mq-track{animation-direction:reverse;animation-duration:38s}
 .marquee:hover .mq-track{animation-play-state:paused}
-.mq-track img{height:44px;width:auto;max-width:170px;object-fit:contain;filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply;opacity:.6;transition:opacity .25s,filter .25s}
+.mq-track img{height:var(--h,44px);width:auto;max-width:200px;object-fit:contain;filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply;opacity:.6;transition:opacity .25s,filter .25s}
 .mq-track li.w img{filter:brightness(0);mix-blend-mode:normal;opacity:.5}
 .mq-track li:hover img{opacity:1;filter:none}
 .mq-track li.w:hover img{filter:brightness(0);opacity:.85}
 @keyframes mq{to{transform:translateX(-100%)}}
 .band-t{text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
-@media (max-width:720px){.mq-track{gap:40px;padding-right:40px}.mq-track img{height:34px;max-width:130px}}
+@media (max-width:720px){.mq-track{gap:40px;padding-right:40px}.mq-track img{height:calc(var(--h,44px)*.78);max-width:156px}}
 @media (prefers-reduced-motion:reduce){.mq-track{animation:none}.marquee{flex-wrap:wrap;justify-content:center}.mq-track[aria-hidden]{display:none}}
 
 /* ==========================================================================
