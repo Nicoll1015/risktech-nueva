@@ -211,6 +211,11 @@ h2 em{font-style:normal;color:var(--violet)}
 .checks.dk li{color:#C9D5E4}
 .checks.dk li b{color:#fff}
 .checks.dk li .ck{background:rgba(255,101,84,.18);color:var(--coral-2)}
+.sdk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.sdk div{border-left:3px solid var(--coral);padding:4px 0 4px 16px}
+.sdk b{display:flex;align-items:center;gap:8px;font-size:15px;margin-bottom:6px}
+.sdk b svg{color:var(--coral-2)}
+.sdk p{font-size:13px;color:#B9C8DA}
 /* device fingerprint */
 .df-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
 .df-grid > div > p{font-size:17px;color:var(--mute);margin-bottom:24px}
@@ -309,7 +314,7 @@ h2 em{font-style:normal;color:var(--violet)}
   .wrap{padding:0 16px}
   section{padding:76px 0}
   .hero{padding:120px 0 70px}
-  .pain-grid,.why-grid,.feat-list,.ad-feats,.stats-grid{grid-template-columns:1fr}
+  .pain-grid,.why-grid,.feat-list,.sdk,.ad-feats,.stats-grid{grid-template-columns:1fr}
   .df-mock{padding:18px}
   .sub-grid{grid-template-columns:1fr 1fr}
   .road{grid-template-columns:1fr 1fr;row-gap:34px}
