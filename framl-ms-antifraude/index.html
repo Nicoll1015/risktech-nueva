@@ -502,13 +502,32 @@
       <svg id="net" viewBox="0 0 460 340" role="img" aria-label="Grafo de riesgo en red"></svg>
     </div>
 
-    <div class="rv" style="margin-top:60px">
-      <span class="eyebrow" style="color:var(--violet-2)"><svg aria-hidden="true" class="i"><use href="#mobile"/></svg>SDK de huella de dispositivo</span>
-      <h3 style="font-size:24px;font-weight:800;margin:10px 0 4px">Blinda la app y el portal contra suplantación y ataques automatizados</h3>
-      <div class="sdk">
-        <div><b><svg aria-hidden="true" class="i"><use href="#mobile"/></svg>Hardware e identidad</b><p>Canvas fingerprint, Device ID único, IMEI, marca, modelo y resolución para detectar dispositivos suplantados.</p></div>
-        <div><b><svg aria-hidden="true" class="i"><use href="#globe"/></svg>Red y conexión</b><p>IP pública y local, ISP, operador, uso de VPN y proxies para identificar redes de anonimización.</p></div>
-        <div><b><svg aria-hidden="true" class="i"><use href="#map"/></svg>Entorno de ejecución</b><p>Detección de emuladores, ubicación GPS y GPS simulado (Mock GPS).</p></div>
+  </div>
+</section>
+
+<!-- DEVICE FINGERPRINT -->
+<section class="soft" id="device-fingerprint">
+  <div class="wrap">
+    <div class="df-grid">
+      <div class="rv">
+        <span class="eyebrow"><svg aria-hidden="true" class="i"><use href="#mobile"/></svg>Device Fingerprint</span>
+        <h2>Reconoce cada dispositivo <em>antes de aprobar la transacción.</em></h2>
+        <p>La huella de dispositivo de FRAML MS identifica el equipo desde el que opera el cliente en tu app y tu portal web, y blinda tus canales contra suplantación y ataques automatizados.</p>
+        <ul class="checks">
+          <li><span class="ck"><svg aria-hidden="true" class="i"><use href="#check"/></svg></span><div><b>Hardware e identidad:</b> Canvas fingerprint, Device ID único, IMEI, marca, modelo y resolución para detectar dispositivos suplantados.</div></li>
+          <li><span class="ck"><svg aria-hidden="true" class="i"><use href="#check"/></svg></span><div><b>Red y conexión:</b> IP pública y local, ISP, operador, uso de VPN y proxies para identificar redes de anonimización.</div></li>
+          <li><span class="ck"><svg aria-hidden="true" class="i"><use href="#check"/></svg></span><div><b>Entorno de ejecución:</b> detección de emuladores, ubicación GPS y GPS simulado (Mock GPS).</div></li>
+          <li><span class="ck"><svg aria-hidden="true" class="i"><use href="#check"/></svg></span><div><b>Señales que alimentan el motor:</b> úsalas en tus reglas (por ejemplo, dispositivo nuevo + monto alto) y en el grafo de Cerebrito para ver un mismo celular detrás de varias identidades.</div></li>
+        </ul>
+      </div>
+      <div class="mock df-mock rv d2" role="img" aria-label="Ejemplo de evaluación de huella de dispositivo">
+        <div class="mock-bar"><i></i><i></i><i></i></div>
+        <h4><span>Huella del dispositivo</span><span class="pill c">Riesgo alto</span></h4>
+        <div class="rule"><div><b>Device ID</b><br><code>a3f9-7c21-e08b</code></div><span class="pill v">Nuevo</span></div>
+        <div class="rule"><div><b>Hardware</b><br><code>Android · 1080×2400 · Canvas ✓</code></div><span class="pill g">Coincide</span></div>
+        <div class="rule"><div><b>Red</b><br><code>VPN / proxy activo</code></div><span class="pill c">Alerta</span></div>
+        <div class="rule"><div><b>Entorno</b><br><code>Mock GPS detectado</code></div><span class="pill c">Alerta</span></div>
+        <div class="rule"><div><b>Regla activada</b><br><code>device_new AND amount &gt; p95</code></div><span class="pill c">Alta</span></div>
       </div>
     </div>
   </div>
