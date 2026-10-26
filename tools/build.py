@@ -59,6 +59,7 @@ PRODUCTOS = {
     "/framl-ms-antifraude/": "FRAML MS AntiFraud",
     "/framl-ms-aml/": "FRAML MS AML",
     "/alert-framl-defense/": "FRAML Alert Defense",
+    "/identity-defense/": "Identity Defense",
 }
 
 

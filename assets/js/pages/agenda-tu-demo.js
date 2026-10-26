@@ -10,6 +10,21 @@
   var msg=document.getElementById('form-msg'),done=document.getElementById('form-done'),btn=form.querySelector('.submit');
   var params=new URLSearchParams(location.search),prod=params.get('producto'),sel=document.getElementById('f-producto');
   if(prod&&sel.querySelector('option[value="'+prod+'"]'))sel.value=prod;
+  // Si llegan desde Identity Defense, el formulario se presenta como una conversación y no como una demo
+  if(prod==='identity-defense'){
+    var q=function(s){return document.querySelector(s)},ic=function(n){return '<span class="ic"><svg aria-hidden="true" class="i"><use href="#'+n+'"/></svg></span>'};
+    document.title='Conversemos sobre Identity Defense | RiskTech';
+    q('.demo-copy h1').innerHTML='Conversemos sobre <span class="grad">Identity Defense.</span>';
+    q('.demo-copy .lead').textContent='Cuéntanos quién eres y qué necesitas. Un especialista te contactará para acordar la conversación.';
+    q('.demo-copy .inc-t').textContent='De qué hablamos';
+    q('.demo-copy .inc').innerHTML=
+      '<li>'+ic('target')+'<div><b>Tu flujo de vinculación</b>Canales, perfiles de cliente y dónde aparece hoy la suplantación.</div></li>'+
+      '<li>'+ic('monitor')+'<div><b>Tu apetito de riesgo</b>Similitud facial, prueba de vida, listas restrictivas y qué casos van a revisión.</div></li>'+
+      '<li>'+ic('arrow')+'<div><b>Siguientes pasos claros</b>Integración, piloto con tus datos y acompañamiento, sin compromiso.</div></li>';
+    q('label[for="f-producto"]').textContent='Solución';
+    btn.innerHTML='<svg aria-hidden="true" class="i"><use href="#msg"/></svg>Conversemos';
+    done.querySelector('p').textContent='Un especialista de RiskTech te escribirá para acordar la conversación. Te enviamos una confirmación a tu correo.';
+  }
   var ref='';try{var r=new URL(document.referrer);if(r.host===location.host)ref=r.pathname;}catch(e){}
   document.getElementById('f-origen').value=(ref||'directo')+(prod?' · '+prod:'');
 
